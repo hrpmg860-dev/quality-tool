@@ -50,14 +50,14 @@ function ComparisonTable({ group }: { group: GroupDetail }) {
                 <Link href={`/records/${r.id}`} className="block truncate font-semibold text-slate-900 hover:text-brand-700" data-testid="compare-record">
                   {recordDisplayName(r)}
                 </Link>
-                <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] font-normal text-slate-500">
+                <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] font-normal text-slate-500">
                   <span className="font-mono">#{r.id}</span>
                   {r.id === group.anchor_record_id && <Badge tone="indigo">anchor</Badge>}
                   {r.redacted && <Badge tone="gray">restricted</Badge>}
                   {i > 0 && pendingPairs.get(`${Math.min(group.anchor_record_id ?? 0, r.id)}:${Math.max(group.anchor_record_id ?? 0, r.id)}`) && (
                     <ConfidenceScore compact score={pendingPairs.get(`${Math.min(group.anchor_record_id ?? 0, r.id)}:${Math.max(group.anchor_record_id ?? 0, r.id)}`)!.score} />
                   )}
-                </p>
+                </div>
                 {!r.redacted && r.current_master_id != null && (
                   <p className="mt-0.5 text-[11px] font-normal text-slate-400">
                     master <Link className="text-brand-600 hover:underline" href={`/masters/${r.current_master_id}`}>M-{r.current_master_id}</Link>

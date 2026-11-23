@@ -21,7 +21,7 @@ import type { Group, Order } from "@/types/api";
 
 const STATUSES = ["pending", "in_review", "resolved", "stale"];
 const TIERS = ["high", "medium", "low"];
-const SCOPES = ["intra_file", "cross_file", "historical", "mixed"];
+const SCOPES = ["suppression", "cross_file", "historical", "intra_file", "mixed"];
 
 export function GroupsTable({ fixed = {}, compact = false }: { fixed?: { dataset_id?: number; upload_id?: number }; compact?: boolean }) {
   const { me } = useAuth();

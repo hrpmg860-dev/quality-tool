@@ -239,7 +239,7 @@ export interface RecordDetail extends RecordItem {
 }
 
 export type Tier = "high" | "medium" | "low";
-export type Scope = "intra_file" | "cross_file" | "historical" | "mixed";
+export type Scope = "intra_file" | "cross_file" | "historical" | "suppression" | "mixed";
 
 export interface Match {
   id: number;
